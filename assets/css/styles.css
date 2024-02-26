@@ -2,7 +2,8 @@
 body,
 h1,
 p,
-a {
+a,
+button {
     margin: 0;
     padding: 0;
 }
@@ -36,6 +37,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    line-height: 1.4rem;
+    font-size: 1rem;
+    color: #515151;
+    text-align: center;
+    margin: 50px auto;
+}
+
 .header-desc {
     color: #474747;
     font-size: 0.8rem;
@@ -54,6 +63,10 @@ main {
 }
 
 .btn-fileupload {
+    display: block;
+    justify-content: center;
+    width: auto;
+    margin: 48px auto 40px auto;
     padding: 14px 26px;
     border: 1px solid #414141;
     border-radius: 5px;
@@ -66,11 +79,15 @@ main {
     transition-timing-function: ease; */
 }
 
-.btn-fileupload:hover,
-.btn-fileupload:focus {
+.btn-fileupload:hover {
     cursor: pointer;
     color: #fff;
-    background-color: #5a5a5a;
+    background-color: #55b069;
+}
+
+.btn-fileupload:focus {
+    border: 1px solid #55b069;
+    outline: 2px solid #55b069;
 }
 
 .btn-fileupload:active {
@@ -111,6 +128,7 @@ main {
     margin-bottom: 1rem;
     height: 190px;
     border: 2px dotted #6c6c6c;
+    background-color: #f8f8f8;
     font-size: 0.8rem;
     text-align: center;
 }
@@ -124,7 +142,7 @@ main {
     position: relative;
     width: 279px;
     height: 579px;
-    margin: auto;
+    margin: 120px auto auto auto;
     border: 4px solid #1d1c1c;
     border-radius: 10px;
     background-color: #55b069;
@@ -141,6 +159,19 @@ main {
     transform: translateX(-50%);
 }
 
+.cutton-group {
+    display: flex;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cutton-des {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .cuttoon-button {
     display: none;
 }
@@ -154,8 +185,7 @@ main {
     border-radius: 50px;
     background-color: #e0e0e0;
 
-    /* 색 */
-    transition-property: all;
+    transition-property: background-color;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.22, 1.275);
 }
@@ -170,17 +200,9 @@ main {
     background-color: #fff;
     transform: translate(7px, -50%);
 
-    transition-property: all;
+    transition-property: left transform;
     transition-duration: 0.3s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.22, 1.275);
-}
-
-.cuttoon-button:active + .cuttoon-label .toggle-circle {
-    width: 60%;
-}
-
-.cuttoon-button:checked + .cuttoon-label {
-    background-color: #55b069;
 }
 
 .cuttoon-button:checked + .cuttoon-label .toggle-circle {
@@ -188,13 +210,37 @@ main {
     transform: translate(-100%, -50%);
 }
 
+.cuttoon-button:checked + .cuttoon-label {
+    background-color: #55b069;
+}
+
+.cuttoon-button:active + .cuttoon-label .toggle-circle {
+    width: 60%;
+}
+
 /* 휴대폰 기종 */
+
 .btn-phonetype {
+    margin: 0 10px 14px 0;
     padding: 14px 26px;
     border: 1px solid #414141;
     border-radius: 5px;
     background-color: #fff;
     font-size: 1rem;
+    line-height: 1rem;
+}
+
+.btn-phonetype:hover,
+.btn-phonetype:focus {
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #155924;
+    background-color: #55b069;
+    outline: 1px solid #155924;
+}
+
+.btn-phonetype:active {
+    box-shadow: inset 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* footer */
