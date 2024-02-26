@@ -146,32 +146,46 @@ main {
 }
 
 .cuttoon-label {
+    cursor: pointer;
     display: block;
     position: relative;
-    width: 83px;
+    width: 63px;
     height: 33px;
     border-radius: 50px;
     background-color: #e0e0e0;
+
+    /* 색 */
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.22, 1.275);
 }
 
 .cuttoon-label .toggle-circle {
     position: absolute;
     top: 50%;
-    left: 7px;
+    left: 0;
     width: 22px;
     height: 22px;
     border-radius: 100%;
     background-color: #fff;
-    transform: translateY(-50%);
+    transform: translate(7px, -50%);
+
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.22, 1.275);
 }
 
-.cuttoon-button:checked + label {
+.cuttoon-button:active + .cuttoon-label .toggle-circle {
+    width: 60%;
+}
+
+.cuttoon-button:checked + .cuttoon-label {
     background-color: #55b069;
 }
 
 .cuttoon-button:checked + .cuttoon-label .toggle-circle {
-    left: auto;
-    right: 7px;
+    left: calc(100% - 7px);
+    transform: translate(-100%, -50%);
 }
 
 /* 휴대폰 기종 */
