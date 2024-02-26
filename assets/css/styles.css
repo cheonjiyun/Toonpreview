@@ -1,0 +1,220 @@
+/* reset */
+body,
+h1,
+p,
+a {
+    margin: 0;
+    padding: 0;
+}
+
+/* preset */
+* {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+}
+
+/* heaer */
+header {
+    display: flex;
+    justify-content: center;
+    padding-top: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dadada;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+h1 {
+    margin-bottom: 3px;
+    color: #383838;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.header-desc {
+    color: #474747;
+    font-size: 0.8rem;
+}
+
+/* main */
+main {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    justify-content: center;
+}
+
+/* file-area 원고 이미지 영역 */
+.file-area {
+    justify-self: flex-end;
+}
+
+.btn-fileupload {
+    padding: 14px 26px;
+    border: 1px solid #414141;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+    box-shadow: 2px 2px 0.3px rgba(0, 0, 0, 0.25);
+
+    /* transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease; */
+}
+
+.btn-fileupload:hover,
+.btn-fileupload:focus {
+    cursor: pointer;
+    color: #fff;
+    background-color: #5a5a5a;
+}
+
+.btn-fileupload:active {
+    box-shadow: inset 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.image-files {
+    position: relative;
+    width: 140px;
+    margin-bottom: 1rem;
+    height: 190px;
+    background-color: #55b069;
+}
+
+.image-delete {
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+
+.image-title {
+    position: absolute;
+    bottom: 0;
+    padding: 14px;
+    font-size: 0.8rem;
+    background-color: rgba(217, 217, 217, 0.7);
+}
+
+.image-drag {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    width: 140px;
+    margin-bottom: 1rem;
+    height: 190px;
+    border: 2px dotted #6c6c6c;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* 중심 휴대폰 */
+.pre-area {
+    margin: auto 10%;
+}
+
+.phone {
+    position: relative;
+    width: 279px;
+    height: 579px;
+    margin: auto;
+    border: 4px solid #1d1c1c;
+    border-radius: 10px;
+    background-color: #55b069;
+}
+
+.phone-deco {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: #1d1c1c;
+    transform: translateX(-50%);
+}
+
+.cuttoon-button {
+    display: none;
+}
+
+.cuttoon-label {
+    display: block;
+    position: relative;
+    width: 83px;
+    height: 33px;
+    border-radius: 50px;
+    background-color: #e0e0e0;
+}
+
+.cuttoon-label .toggle-circle {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    background-color: #fff;
+    transform: translateY(-50%);
+}
+
+.cuttoon-button:checked + label {
+    background-color: #55b069;
+}
+
+.cuttoon-button:checked + .cuttoon-label .toggle-circle {
+    left: auto;
+    right: 7px;
+}
+
+/* 휴대폰 기종 */
+.btn-phonetype {
+    padding: 14px 26px;
+    border: 1px solid #414141;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+/* footer */
+footer {
+    position: relative;
+    background-color: #414141;
+    color: #fff;
+}
+
+footer * {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 200;
+}
+
+.count {
+    padding-top: 13px;
+    margin-bottom: 8px;
+}
+
+.announce {
+    color: #d1d1d1;
+}
+
+.mail {
+    margin-top: 26px;
+    padding-bottom: 13px;
+}
+
+.github {
+    font-size: 0;
+    display: block;
+    color: #f8f8f8;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
