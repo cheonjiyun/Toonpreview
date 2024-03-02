@@ -3,7 +3,10 @@ body,
 h1,
 p,
 a,
-button {
+button,
+input,
+label,
+footer {
     margin: 0;
     padding: 0;
 }
@@ -53,7 +56,8 @@ h2 {
 /* main */
 main {
     display: grid;
-    grid-template-columns: 1fr 400px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh;
     justify-content: center;
 }
 
@@ -118,6 +122,7 @@ main {
 }
 
 .image-drag {
+    cursor: pointer;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -131,6 +136,12 @@ main {
     background-color: #f8f8f8;
     font-size: 0.8rem;
     text-align: center;
+
+    /* transition: background-color 0.03s linear; */
+}
+
+.image-drag:active {
+    background-color: #e9e9e9;
 }
 
 /* 중심 휴대폰 */
@@ -140,13 +151,67 @@ main {
 
 .phone {
     position: relative;
-    width: 279px;
-    height: 579px;
+    width: 70.6mm;
+    height: 147mm;
     margin: 120px auto auto auto;
     border: 4px solid #1d1c1c;
     border-radius: 10px;
     background-color: #55b069;
 }
+
+/* -- 폰 기종 가로세로 크기 -- */
+
+.galaxy-s-24 {
+    width: 70.6mm;
+    height: 147mm;
+}
+
+.galaxy-s-24-plus {
+    width: 75.9mm;
+    height: 158.5mm;
+}
+
+.galaxy-s-24-ultra {
+    width: 79mm;
+    height: 162.3mm;
+}
+
+.galaxy-s-23 {
+    width: 70.9mm;
+    height: 146.3mm;
+}
+
+.galaxy-s-23-plus {
+    width: 76.2mm;
+    height: 157.8mm;
+}
+
+.galaxy-s-23-ultra {
+    width: 78.1mm;
+    height: 163.4mm;
+}
+
+.galaxy-z-flip5 {
+    width: 71.9mm;
+    height: 165.1mm;
+}
+
+.galaxy-z-flip4 {
+    width: 71.9mm;
+    height: 165.2mm;
+}
+
+.galaxy-z-fold5 {
+    width: 67.1mm;
+    height: 154.9mm;
+}
+
+.galaxy-z-fold5-open {
+    width: 129.9mm;
+    height: 154.9mm;
+}
+
+/* //-- 폰 기종 가로세로 크기 --// */
 
 .phone-deco {
     position: absolute;
@@ -219,8 +284,18 @@ main {
 }
 
 /* 휴대폰 기종 */
+.kind_area input {
+    display: none;
+}
 
 .btn-phonetype {
+    /* font-weight: 700; */
+    /* font-weight: 700; */
+}
+
+.btn-phonetype::after {
+    content: attr(title);
+    display: inline-block;
     margin: 0 10px 14px 0;
     padding: 14px 26px;
     border: 1px solid #414141;
@@ -230,39 +305,52 @@ main {
     line-height: 1rem;
 }
 
-.btn-phonetype:hover,
-.btn-phonetype:focus {
+.btn-phonetype:hover::after {
     cursor: pointer;
-    color: #fff;
     border: 1px solid #155924;
-    background-color: #55b069;
-    outline: 1px solid #155924;
+    background-color: #f0f9f2;
 }
 
-.btn-phonetype:active {
-    box-shadow: inset 4px 4px rgba(0, 0, 0, 0.25);
+/* .btn-phonetype:focus {
+    background-color: #f0f9f2;
+    outline: 1px solid #155924;
+} */
+
+.btn-phonetype:active::after {
+    margin: 1px 11px 15px 1px;
+    padding: 11px 23px;
+}
+
+.kind_area input:checked + .btn-phonetype::after {
+    color: #1f8134;
+    font-style: normal;
+    border: 1px solid #155924;
+    background-color: #f0f9f2;
+    font-weight: 700;
 }
 
 /* footer */
 footer {
+    /* max-height: max(auto, calc(100vh - 954px)); */
     position: relative;
-    background-color: #414141;
-    color: #fff;
+    background-color: #f1f1f1;
+    color: #212522;
 }
 
 footer * {
     text-align: center;
     font-size: 0.7rem;
-    font-weight: 200;
+    font-weight: 400;
 }
 
 .count {
+    font-size: 0.8rem;
     padding-top: 13px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .announce {
-    color: #d1d1d1;
+    color: #737e76;
 }
 
 .mail {
@@ -273,7 +361,7 @@ footer * {
 .github {
     font-size: 0;
     display: block;
-    color: #f8f8f8;
+    color: #212522;
     position: absolute;
     right: 10px;
     bottom: 10px;

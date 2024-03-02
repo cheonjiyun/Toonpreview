@@ -11,6 +11,7 @@
         />
         <link rel="icon" href="./assets/img/logo.svg" />
         <link rel="stylesheet" href="./assets/css/styles.css" />
+
         <title>툰프리뷰</title>
     </head>
     <body>
@@ -96,7 +97,7 @@
                     </div>
                 </section>
                 <section class="pre-area">
-                    <div class="phone">
+                    <div class="phone galaxy-s-23">
                         <div class="phone-deco"></div>
                     </div>
                     <div class="cutton-group">
@@ -113,33 +114,149 @@
                 </section>
                 <section class="kind_area">
                     <h2>휴대폰 기종</h2>
-                    <button type="button" class="btn-phonetype">
-                        삼성 갤럭시 S24
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        삼성 갤럭시 S23
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        삼성 갤럭시 Z Flip5
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        삼성 갤럭시 A25
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        아이폰 14
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        아이폰 13
-                    </button>
-                    <button type="button" class="btn-phonetype">
-                        갤럭시탭 S6
-                    </button>
+
+                    <input
+                        type="radio"
+                        id="galaxy-s-24"
+                        name="phonetype"
+                        checked
+                    />
+                    <label
+                        for="galaxy-s-24"
+                        class="btn-phonetype"
+                        title="갤럭시 S24"
+                    >
+                    </label>
+
+                    <input
+                        type="radio"
+                        id="galaxy-s-24-plus"
+                        name="phonetype"
+                    />
+                    <label
+                        for="galaxy-s-24-plus"
+                        class="btn-phonetype"
+                        title="갤럭시 S24+"
+                    >
+                    </label>
+
+                    <input
+                        type="radio"
+                        id="galaxy-s-24-ultra"
+                        name="phonetype"
+                    />
+                    <label
+                        for="galaxy-s-24-ultra"
+                        class="btn-phonetype"
+                        title="갤럭시 S24 Ultra"
+                    >
+                    </label>
+
+                    <input type="radio" id="galaxy-s-23" name="phonetype" />
+                    <label
+                        for="galaxy-s-23"
+                        class="btn-phonetype"
+                        title="갤럭시 S23"
+                    >
+                    </label>
+
+                    <input
+                        type="radio"
+                        id="galaxy-s-23-plus"
+                        name="phonetype"
+                    />
+                    <label
+                        for="galaxy-s-23-plus"
+                        class="btn-phonetype"
+                        title="갤럭시 S23+"
+                    >
+                    </label>
+
+                    <input
+                        type="radio"
+                        id="galaxy-s-23-ultra"
+                        name="phonetype"
+                    />
+                    <label
+                        for="galaxy-s-23-ultra"
+                        class="btn-phonetype"
+                        title="갤럭시 S23 Ultra"
+                    >
+                    </label>
+
+                    <input type="radio" id="galaxy-z-flip5" name="phonetype" />
+                    <label
+                        for="galaxy-z-flip5"
+                        class="btn-phonetype"
+                        title="갤럭시 Z Flip5"
+                    >
+                    </label>
+
+                    <input type="radio" id="galaxy-z-flip4" name="phonetype" />
+                    <label
+                        for="galaxy-z-flip4"
+                        class="btn-phonetype"
+                        title="갤럭시 Z Flip4"
+                    >
+                    </label>
+
+                    <input type="radio" id="galaxy-z-fold5" name="phonetype" />
+                    <label
+                        for="galaxy-z-fold5"
+                        class="btn-phonetype"
+                        title="갤럭시 Z Fold5"
+                    >
+                    </label>
+
+                    <input
+                        type="radio"
+                        id="galaxy-z-fold5-open"
+                        name="phonetype"
+                    />
+                    <label
+                        for="galaxy-z-fold5-open"
+                        class="btn-phonetype"
+                        title="갤럭시 Z Fold5 펼침"
+                    >
+                    </label>
+
+                    <input type="radio" id="icon-15" name="phonetype" />
+                    <label
+                        for="icon-15"
+                        class="btn-phonetype"
+                        title="아이폰 15"
+                    >
+                    </label>
+
+                    <input type="radio" id="icon-15-plus" name="phonetype" />
+                    <label
+                        for="icon-15-plus"
+                        class="btn-phonetype"
+                        title="아이폰 15 Plus"
+                    >
+                    </label>
+
+                    <input type="radio" id="icon-15-pro" name="phonetype" />
+                    <label
+                        for="icon-15-pro"
+                        class="btn-phonetype"
+                        title="아이폰 15 Pro"
+                    >
+                    </label>
+
+                    <input type="radio" id="icon-15-pro-max" name="phonetype" />
+                    <label
+                        for="icon-15-pro-max"
+                        class="btn-phonetype"
+                        title="아이폰 15 Pro Max"
+                    >
+                    </label>
                 </section>
             </main>
             <footer>
-                <div class="count">누적 사용횟수 0</div>
+                <div class="count">누적 사용횟수 <span></span>0</div>
                 <div class="announce">
-                    이미지 파일은 서버에 전송하지 않으며, 수집하지 않습니다 :)
+                    원고 파일은 서버에 전송하지 않습니다 :)
                 </div>
                 <p class="mail">문의 | 메일@메일</p>
 
@@ -170,6 +287,7 @@
                 </svg>
 
                 <a
+                    title="깃허브 바로가기"
                     href="https://github.com/cheonjiyun/Toonpreview"
                     class="github"
                     target="_blank"
@@ -192,4 +310,5 @@
             </footer>
         </div>
     </body>
+    <script src="./js/phone-type.js"></script>
 </html>
