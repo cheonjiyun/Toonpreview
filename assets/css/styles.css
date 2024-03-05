@@ -5,8 +5,7 @@ p,
 a,
 button,
 input,
-label,
-footer {
+label {
     margin: 0;
     padding: 0;
 }
@@ -66,6 +65,10 @@ main {
     justify-self: flex-end;
 }
 
+.file-area input {
+    display: none;
+}
+
 .btn-fileupload {
     display: block;
     justify-content: center;
@@ -114,7 +117,9 @@ main {
 }
 
 .image-title {
+    box-sizing: border-box;
     position: absolute;
+    width: 140px;
     bottom: 0;
     padding: 14px;
     font-size: 0.8rem;
