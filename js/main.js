@@ -13,7 +13,7 @@ for (const phonetype of phonetypes) {
 
 // 파일업로드
 function imageFileHtml(title, image) {
-    return `<div class="image-files" style="background-image : url('${image}')">
+    return `<div class="image-files" style="background-image : url('${image}')" draggable="true">
     <div role="button" class="image-delete">
         <svg
             width="30"
@@ -51,17 +51,60 @@ function imageFileHtml(title, image) {
 // const dataTransfer = new DataTransfer();
 
 // 왼쪽 썸네일
-let btnUpload = document.querySelector("#btn-upload");
-btnUpload.addEventListener("change", (event) => {
-    [...event.target.files].forEach((el, i) => {
+const btnUploadInput = document.querySelector("#btn-upload");
+
+// 원고 박스 추가
+function addImageDiv(files) {
+    [...files].forEach((el, i) => {
         let reader = new FileReader();
         reader.readAsDataURL(el);
 
         reader.addEventListener("load", () => {
-            event.target.insertAdjacentHTML(
+            btnUploadInput.insertAdjacentHTML(
                 "beforebegin",
                 imageFileHtml(el.name, reader.result)
             );
         });
     });
+}
+
+// 클릭했을 때
+btnUploadInput.addEventListener("change", (event) => {
+    addImageDiv(event.target.files);
 });
+
+//드래그 앤 드롭
+const btnUploadLabel = document.querySelector(".image-drag");
+function stopandprevent(event) {
+    event.stopPropagation();
+    event.preventDefault();
+}
+btnUploadLabel.addEventListener(
+    "dragenter",
+    (event) => {
+        stopandprevent(event);
+        btnUploadLabel.style.backgroundColor = "#e9e9e9";
+        console.log("dragenter");
+    },
+    false
+);
+
+btnUploadLabel.addEventListener("dragover", stopandprevent, false);
+btnUploadLabel.addEventListener(
+    "drop",
+    (event) => {
+        stopandprevent(event);
+        addImageDiv(event.dataTransfer.files);
+    },
+    false
+);
+
+btnUploadLabel.addEventListener(
+    "dragleave",
+    (event) => {
+        stopandprevent(event);
+        btnUploadLabel.style.backgroundColor = "#f8f8f8";
+        console.log("dragleave");
+    },
+    false
+);
