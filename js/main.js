@@ -18,11 +18,54 @@ function imageDelete(event) {
     event.target.parentElement.remove();
 }
 
+const imageFileAreaDOM = document.querySelector(".image-file-area");
+imageFileAreaDOM.addEventListener("dragover", imageMove);
+
+// 이동 이벤트
+function imageMove(event) {
+    event.preventDefault();
+
+    // DOM
+    const draggingDOM = document.querySelector(".image-file-container.dragging");
+    const notDraggingDOMs = [...document.querySelectorAll(".image-file-container:not(.dragging)")];
+
+    // 가장가까운DOM
+    let closeNumber = Number.MIN_SAFE_INTEGER;
+    let closeDOM;
+    notDraggingDOMs.forEach((notDraggingDOM) => {
+        const rect = notDraggingDOM.getBoundingClientRect();
+        const offset = event.clientY - rect.top - rect.height / 2;
+
+        if (offset < 0 && offset > closeNumber) {
+            closeNumber = offset;
+            closeDOM = notDraggingDOM;
+        }
+    });
+
+    if (closeDOM == undefined) {
+        // 맨 마지막이라면
+        imageFileAreaDOM.appendChild(draggingDOM);
+    } else {
+        imageFileAreaDOM.insertBefore(draggingDOM, closeDOM);
+    }
+}
+
+// DOM
 function imageFileDOM(title, image) {
-    const imageFileContianerDOM = document.createElement("div");
-    imageFileContianerDOM.className = "image-file-container";
-    imageFileContianerDOM.style.backgroundImage = `url('${image}')`;
-    imageFileContianerDOM.draggable = "true";
+    const imageFileContainerDOM = document.createElement("div");
+    imageFileContainerDOM.className = "image-file-container";
+    imageFileContainerDOM.draggable = "true";
+    imageFileContainerDOM.addEventListener("dragstart", (event) => {
+        event.target.classList.add("dragging");
+    });
+    // imageFileContainerDOM.addEventListener("dragover", imageMove);
+    imageFileContainerDOM.addEventListener("dragend", (event) => {
+        event.target.classList.remove("dragging");
+    });
+
+    const imageFileDOM = document.createElement("img");
+    imageFileDOM.className = "image-file";
+    imageFileDOM.src = image;
 
     const btnImageDeleteDOM = document.createElement("div");
     btnImageDeleteDOM.className = "image-delete";
@@ -32,16 +75,19 @@ function imageFileDOM(title, image) {
     imageTitleDOM.className = "image-title";
     imageTitleDOM.innerHTML = `${title}`;
 
-    imageFileContianerDOM.appendChild(btnImageDeleteDOM);
-    imageFileContianerDOM.appendChild(imageTitleDOM);
+    imageFileContainerDOM.appendChild(imageFileDOM);
+    imageFileContainerDOM.appendChild(btnImageDeleteDOM);
+    imageFileContainerDOM.appendChild(imageTitleDOM);
 
-    return imageFileContianerDOM;
+    return imageFileContainerDOM;
 }
 
 // const dataTransfer = new DataTransfer();
 
 /* 왼쪽 썸네일 */
 const btnUploadInputDOM = document.querySelector("#btn-upload");
+const btnUploadLabel = document.querySelector(".image-drag");
+const fileAreaDOM = document.querySelector(".file-area");
 
 // 원고 박스 추가
 function addImageDiv(files) {
@@ -50,10 +96,7 @@ function addImageDiv(files) {
         reader.readAsDataURL(el);
 
         reader.addEventListener("load", () => {
-            btnUploadInputDOM.insertAdjacentElement(
-                "beforebegin",
-                imageFileDOM(el.name, reader.result)
-            );
+            imageFileAreaDOM.appendChild(imageFileDOM(el.name, reader.result));
         });
     });
 }
@@ -64,23 +107,21 @@ btnUploadInputDOM.addEventListener("change", (event) => {
 });
 
 //드래그 앤 드롭
-const btnUploadLabel = document.querySelector(".image-drag");
+
 function stopandprevent(event) {
     event.stopPropagation();
     event.preventDefault();
 }
-btnUploadLabel.addEventListener(
+fileAreaDOM.addEventListener(
     "dragenter",
     (event) => {
         stopandprevent(event);
-        btnUploadLabel.style.backgroundColor = "#e9e9e9";
-        console.log("dragenter");
     },
     false
 );
 
-btnUploadLabel.addEventListener("dragover", stopandprevent, false);
-btnUploadLabel.addEventListener(
+fileAreaDOM.addEventListener("dragover", stopandprevent, false);
+fileAreaDOM.addEventListener(
     "drop",
     (event) => {
         stopandprevent(event);
@@ -89,12 +130,10 @@ btnUploadLabel.addEventListener(
     false
 );
 
-btnUploadLabel.addEventListener(
+fileAreaDOM.addEventListener(
     "dragleave",
     (event) => {
         stopandprevent(event);
-        btnUploadLabel.style.backgroundColor = "#f8f8f8";
-        console.log("dragleave");
     },
     false
 );
