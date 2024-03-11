@@ -62,11 +62,13 @@ imageFileAreaDOM.addEventListener("dragend", imageViewPhone);
 
 // --- 폰 종류 ---
 let phonetypes = document.querySelectorAll("input[name='phonetype']");
-let phone = document.querySelector(".phone");
+let phone = document.querySelector(".phone-inner");
+let phoneCon = document.querySelector(".phone-container");
 
 function changePhone() {
     const phonetype = document.querySelector("input[name='phonetype']:checked");
-    phone.className = `phone ${phonetype.id}`;
+    // phone.className = `phone-inner ${phonetype.id}`;
+    phoneCon.className = `phone-container ${phonetype.id}`;
 }
 
 for (const phonetype of phonetypes) {

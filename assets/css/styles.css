@@ -41,6 +41,7 @@ header {
     display: block;
     width: 60px;
     height: 60px;
+    margin: 1rem;
 }
 
 h1 {
@@ -64,6 +65,7 @@ h2 {
     text-align: center;
     color: #474747;
     font-size: 0.8rem;
+    word-break: keep-all;
 }
 
 /* main */
@@ -217,7 +219,11 @@ main {
     margin: 0 10px;
 }
 
-.phone {
+.phone-container {
+    margin: auto;
+}
+
+.phone-inner {
     position: sticky;
     top: 100px;
     width: 70.6mm;
@@ -233,6 +239,10 @@ main {
     scrollbar-width: none;
 }
 
+.phone {
+    position: absolute;
+}
+
 .phone::-webkit-scrollbar {
     display: none;
 }
@@ -244,85 +254,85 @@ main {
 
 /* -- 폰 기종 가로세로 크기 -- */
 
-.galaxy-s-24 {
+.galaxy-s-24 .phone-inner {
     width: 70.6mm;
     height: 147mm;
     border-radius: 34px;
 }
 
-.galaxy-s-24-plus {
+.galaxy-s-24-plus .phone-inner {
     width: 75.9mm;
     height: 158.5mm;
     border-radius: 35px;
 }
 
-.galaxy-s-24-ultra {
+.galaxy-s-24-ultra .phone-inner {
     width: 79mm;
     height: 162.3mm;
     border-radius: 5px;
 }
 
-/* .galaxy-s-23 {
+/* .galaxy-s-23  .phone-inner{
     width: 70.9mm;
     height: 146.3mm;
     border-radius: 40px;
 }
 
-.galaxy-s-23-plus {
+.galaxy-s-23-plus  .phone-inner{
     width: 76.2mm;
     height: 157.8mm;
     border-radius: 40px;
 }
 
-.galaxy-s-23-ultra {
+.galaxy-s-23-ultra  .phone-inner{
     width: 78.1mm;
     height: 163.4mm;
     border-radius: 40px;
 } */
 
-.galaxy-z-flip5 {
+.galaxy-z-flip5 .phone-inner {
     width: 71.9mm;
     height: 165.1mm;
     border-radius: 25px;
 }
 
-/* .galaxy-z-flip4 {
+/* .galaxy-z-flip4  .phone-inner{
     width: 71.9mm;
     height: 165.2mm;
     border-radius: 40px;
 } */
 
-.galaxy-z-fold5 {
+.galaxy-z-fold5 .phone-inner {
     width: 67.1mm;
     height: 154.9mm;
     border-radius: 25px;
 }
 
-.galaxy-z-fold5-open {
+.galaxy-z-fold5-open .phone-inner {
     width: 129.9mm;
     height: 154.9mm;
     border-radius: 25px;
 }
 
-.icon-15 {
+.iphone-15 .phone-inner {
     width: 71.6mm;
     height: 147.6mm;
     border-radius: 40px;
 }
 
-.icon-15-plus {
+.iphone15-plus .phone-inner {
     width: 77.8mm;
     height: 160.9mm;
     border-radius: 40px;
 }
 
-.icon-15-pro {
+.iphone-15-pro .phone-inner {
     width: 70.6mm;
     height: 146.6mm;
     border-radius: 40px;
 }
 
-.icon-15-pro-max {
+.icon-15-pro-max .phone-inner {
     width: 76.7mm;
     height: 159.9mm;
     border-radius: 25px;
@@ -336,27 +346,29 @@ main {
 .galaxy-z-flip5 .phone-deco,
 .galaxy-z-fold5 .phone-deco {
     position: absolute;
-    top: 7px;
+    top: 140px;
     left: 50%;
     width: 14px;
     height: 14px;
     border-radius: 100%;
     background-color: #1d1c1c;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
-.icon-15 .phone-deco,
-.icon-15-plus .phone-deco,
-.icon-15-pro .phone-deco,
-.icon-15-pro-max .phone-deco {
+.iphone-15 .phone-deco,
+.iphone-15-plus .phone-deco,
+.iphone-15-pro .phone-deco,
+.iphone-15-pro-max .phone-deco {
     position: absolute;
-    top: 8px;
+    top: 140px;
     left: 50%;
     width: 25mm;
     height: 22px;
     border-radius: 30mm;
     background-color: #1d1c1c;
     transform: translateX(-50%);
+    z-index: 1;
 }
 
 /* 
@@ -524,4 +536,40 @@ footer * {
     position: absolute;
     right: 10px;
     top: 10px;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 770px) {
+    main {
+        display: none;
+    }
+
+    .logo-container {
+        margin: 0;
+    }
+
+    .mobile {
+        display: block;
+        height: 70vh;
+        font-size: 1.2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto 1rem;
+        line-height: 200%;
+        word-break: keep-all;
+    }
+
+    .mobile p {
+        margin: 1rem auto;
+    }
+
+    .mobile span {
+        font-weight: 700;
+    }
 }
