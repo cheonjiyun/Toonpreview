@@ -229,13 +229,13 @@ main {
     overflow: scroll;
 
     scrollbar-width: thin;
-    /* -ms-overflow-style: none;
-    scrollbar-width: none; */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* .phone::-webkit-scrollbar {
+.phone::-webkit-scrollbar {
     display: none;
-} */
+}
 
 .phone img {
     display: block;
@@ -504,11 +504,12 @@ footer * {
 }
 
 .announce {
+    margin-top: 18px;
     color: #737e76;
 }
 
 .mail {
-    margin-top: 26px;
+    margin-top: 10px;
     padding-bottom: 13px;
 }
 
@@ -522,5 +523,5 @@ footer * {
     color: #212522;
     position: absolute;
     right: 10px;
-    bottom: 10px;
+    top: 10px;
 }
