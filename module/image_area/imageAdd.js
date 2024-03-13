@@ -1,5 +1,5 @@
-import { imageFileDOM } from "../dom/creatImageContainer.js";
-import { imageViewPhone } from "../phone_area/imageViewPhone.js";
+import { creatImageContainerDOM } from "../dom/creatImageContainer.js";
+import { updatePhoneImage } from "../phone_area/imageViewPhone.js";
 
 const imageFileAreaDOM = document.querySelector(".image-file-area");
 
@@ -10,8 +10,9 @@ export function addImageDiv(files) {
         reader.readAsDataURL(el);
 
         reader.addEventListener("load", () => {
-            imageFileAreaDOM.appendChild(imageFileDOM(el.name, reader.result));
-            imageViewPhone();
+            const imageFileDOM = creatImageContainerDOM(el.name, reader.result);
+            imageFileAreaDOM.appendChild(imageFileDOM);
+            updatePhoneImage("add", imageFileDOM.firstElementChild.id);
         });
     });
 }

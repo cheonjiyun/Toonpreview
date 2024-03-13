@@ -137,6 +137,7 @@ main {
 
 .image-file-container.dragging {
     opacity: 0.4;
+    size: 90%;
 }
 
 .image-file {
@@ -216,16 +217,18 @@ main {
 
 /* 중심 휴대폰 */
 .pre-area {
+    position: relative;
     margin: 0 10px;
 }
 
 .phone-container {
+    position: sticky;
+    top: 100px;
     margin: auto;
 }
 
 .phone-inner {
     position: sticky;
-    top: 100px;
     width: 70.6mm;
     height: 147mm;
     margin: 125px auto 120px auto;
@@ -346,7 +349,7 @@ main {
 .galaxy-z-flip5 .phone-deco,
 .galaxy-z-fold5 .phone-deco {
     position: absolute;
-    top: 140px;
+    top: 14px;
     left: 50%;
     width: 14px;
     height: 14px;
@@ -361,7 +364,7 @@ main {
 .iphone-15-pro .phone-deco,
 .iphone-15-pro-max .phone-deco {
     position: absolute;
-    top: 140px;
+    top: 14px;
     left: 50%;
     width: 25mm;
     height: 22px;

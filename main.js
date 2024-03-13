@@ -1,6 +1,6 @@
 import { imageMove } from "/module/image_area/imageMove.js";
 import { addImageDiv } from "/module/image_area/imageAdd.js";
-import { imageViewPhone } from "/module/phone_area/imageViewPhone.js";
+import { updatePhoneImage } from "/module/phone_area/imageViewPhone.js";
 
 // --- 이미지 ---
 // 파일이동
@@ -15,7 +15,6 @@ const fileAreaDOM = document.querySelector(".file-area");
 // 1. 클릭했을 때
 btnUploadInputDOM.addEventListener("change", (event) => {
     addImageDiv(event.target.files);
-    imageViewPhone(); //phone에 보여주기
 });
 
 // 2. 드래그 앤 드롭
@@ -51,27 +50,22 @@ fileAreaDOM.addEventListener(
 // --- //이미지 ---
 // --- 폰 화면 ---
 
-imageFileAreaDOM.addEventListener("dragend", imageViewPhone);
+imageFileAreaDOM.addEventListener("dragend", () => {
+    updatePhoneImage("move");
+});
 
-// let observer = new MutationObserver(() =>
-//     console.log(...document.getElementsByClassName("image-file"))
-// );
-
-// observer.observe(imageFileAreaDOM, { childList: true });
 // --- //폰 화면 ---
 
 // --- 폰 종류 ---
-let phonetypes = document.querySelectorAll("input[name='phonetype']");
-let phone = document.querySelector(".phone-inner");
-let phoneCon = document.querySelector(".phone-container");
+let phonetypesDOMs = document.querySelectorAll("input[name='phonetype']");
+let phoneContainerDOM = document.querySelector(".phone-container");
 
 function changePhone() {
     const phonetype = document.querySelector("input[name='phonetype']:checked");
-    // phone.className = `phone-inner ${phonetype.id}`;
-    phoneCon.className = `phone-container ${phonetype.id}`;
+    phoneContainerDOM.className = `phone-container ${phonetype.id}`;
 }
 
-for (const phonetype of phonetypes) {
+for (const phonetype of phonetypesDOMs) {
     phonetype.addEventListener("click", changePhone);
 }
 

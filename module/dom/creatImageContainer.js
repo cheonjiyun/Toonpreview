@@ -1,13 +1,9 @@
-import { imageViewPhone } from "../phone_area/imageViewPhone.js";
+import { imageDelete } from "../image_area/imageDelete.js";
 
-// 삭제버튼
-function imageDelete(event) {
-    event.target.parentElement.remove();
-    imageViewPhone();
-}
+let imageId = 1;
 
 // DOM
-export function imageFileDOM(title, image) {
+export function creatImageContainerDOM(title, image) {
     const imageFileContainerDOM = document.createElement("div");
     imageFileContainerDOM.className = "image-file-container";
     imageFileContainerDOM.draggable = "true";
@@ -22,6 +18,7 @@ export function imageFileDOM(title, image) {
     const imageFileDOM = document.createElement("img");
     imageFileDOM.className = "image-file";
     imageFileDOM.src = image;
+    imageFileDOM.id = imageId++;
 
     const btnImageDeleteDOM = document.createElement("div");
     btnImageDeleteDOM.className = "image-delete";

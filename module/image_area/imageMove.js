@@ -29,4 +29,6 @@ export function imageMove(event) {
     } else {
         imageFileAreaDOM.insertBefore(draggingDOM, closeDOM);
     }
+
+    return closeDOM;
 }
