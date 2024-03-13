@@ -14,4 +14,4 @@ ver.1 (2024.03.11) 첫 배포 : 이미지첨부, 휴대폰기종 등 필수 기�
 
 ---
 
-![개발일지](https://midi-braid-417.notion.site/cf1a738819e649dcad03748e4a03c86d?pvs=4)
+[개발일지](https://midi-braid-417.notion.site/cf1a738819e649dcad03748e4a03c86d?pvs=4)
