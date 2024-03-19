@@ -5,7 +5,7 @@ const imageFileAreaDOM = document.querySelector(".image-file-area");
 
 // 이미지 컨테이너 추가
 export function addImageDiv(files) {
-    [...files].forEach((el, i) => {
+    [...files].forEach((el) => {
         let reader = new FileReader();
         reader.readAsDataURL(el);
 

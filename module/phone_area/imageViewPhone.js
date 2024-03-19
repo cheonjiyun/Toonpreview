@@ -4,7 +4,7 @@ const imageFileDOMs = document.getElementsByClassName("image-file");
 function createPhoneImageDOM(imgSrc, imgId) {
     const phoneImgDOM = document.createElement("img");
     phoneImgDOM.src = imgSrc;
-    phoneImgDOM.id = imgId;
+    phoneImgDOM.dataset.id = imgId;
     return phoneImgDOM;
 }
 
@@ -13,16 +13,19 @@ export function updatePhoneImage(type, id) {
     switch (type) {
         case "add":
             const lastImageFileDOM = imageFileDOMs[imageFileDOMs.length - 1];
-            const newPhoneImageDOM = createPhoneImageDOM(lastImageFileDOM.src, lastImageFileDOM.id);
+            const newPhoneImageDOM = createPhoneImageDOM(
+                lastImageFileDOM.src,
+                lastImageFileDOM.dataset.id
+            );
             imageFileContainerDOM.appendChild(newPhoneImageDOM);
             break;
         case "delete":
-            [...imagesDOMs]?.find((imageDOM) => imageDOM.id == id).remove();
+            [...imagesDOMs]?.find((imageDOM) => imageDOM.dataset.id == id).remove();
             break;
         case "move":
             // 어긋난 노드들
             const noMatchDOMS = [...imagesDOMs]?.filter((imagesDOM, i) => {
-                return imagesDOM.id != imageFileDOMs[i].id;
+                return imagesDOM.dataset.id != imageFileDOMs[i].dataset.id;
             });
 
             // 어긋난 노드 중 마지막 이미지는 전체에서 몇번째였나?
@@ -32,7 +35,7 @@ export function updatePhoneImage(type, id) {
 
             // 그러면 첫번째 이미지가 어느 위치로 갔는가?
             const whereFristImg = [...imageFileDOMs].findIndex(
-                (imageFileDOM) => imageFileDOM.id == noMatchDOMS[0]?.id
+                (imageFileDOM) => imageFileDOM.dataset.id == noMatchDOMS[0]?.dataset.id
             );
 
             // 첫번째 이미지가 어긋난 것 중 마지막에 있구나! 내려갔군!

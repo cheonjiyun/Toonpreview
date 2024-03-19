@@ -18,7 +18,7 @@ export function creatImageContainerDOM(title, image) {
     const imageFileDOM = document.createElement("img");
     imageFileDOM.className = "image-file";
     imageFileDOM.src = image;
-    imageFileDOM.id = imageId++;
+    imageFileDOM.dataset.id = imageId++;
 
     const btnImageDeleteDOM = document.createElement("div");
     btnImageDeleteDOM.className = "image-delete";
