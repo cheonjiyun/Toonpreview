@@ -1,3 +1,5 @@
+import { previewFlag } from "../../main.js";
+
 const imageFileContainerDOM = document.getElementsByClassName("phone")[0];
 const imageFileDOMs = document.getElementsByClassName("image-file");
 
@@ -12,6 +14,12 @@ export function updatePhoneImage(type, id) {
     const imagesDOMs = document.querySelectorAll(".phone img");
     switch (type) {
         case "add":
+            // 미리보기 이미지 없애기
+            if (previewFlag == "frist") {
+                [...imagesDOMs].forEach((imagesDOM) => imagesDOM.remove());
+            }
+
+            // 그 후 추가
             const lastImageFileDOM = imageFileDOMs[imageFileDOMs.length - 1];
             const newPhoneImageDOM = createPhoneImageDOM(
                 lastImageFileDOM.src,
