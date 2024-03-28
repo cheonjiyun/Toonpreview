@@ -6,10 +6,9 @@ const imageFileAreaDOM = document.querySelector(".image-file-area");
 
 // 이미지 컨테이너 추가
 export function addImageDiv(files) {
-    console.log("add를 더 함");
     const imageFileDOMs = document.querySelectorAll(".image-file-container");
 
-    if (previewFlag == "frist") {
+    if (previewFlag.flag == "frist") {
         [...imageFileDOMs].forEach((imageFileDOM) => imageFileDOM.remove());
     }
 
@@ -23,6 +22,4 @@ export function addImageDiv(files) {
             updatePhoneImage("add", imageFileDOM.firstElementChild.id);
         });
     });
-
-    console.log(previewFlag);
 }

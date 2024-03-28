@@ -15,8 +15,11 @@ export function updatePhoneImage(type, id) {
     switch (type) {
         case "add":
             // 미리보기 이미지 없애기
-            if (previewFlag == "frist") {
+            if (previewFlag.flag == "frist") {
                 [...imagesDOMs].forEach((imagesDOM) => imagesDOM.remove());
+
+                // 이젠 미리보기 끝남
+                previewFlag.flag = "afterSecond";
             }
 
             // 그 후 추가

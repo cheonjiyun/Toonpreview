@@ -1,12 +1,11 @@
 // 이동 이벤트
 const imageFileAreaDOM = document.querySelector(".image-file-area");
 
-export function imageMove(event) {
+export function moveImage(event) {
     event.preventDefault();
 
     // DOM
     const draggingDOM = document.querySelector(".image-file-container.dragging");
-    console.log(draggingDOM);
     if (draggingDOM == null) return; // 처음 파일을 드래그해서 올릴 때는 대비한 예외처리
 
     const notDraggingDOMs = [...document.querySelectorAll(".image-file-container:not(.dragging)")];
