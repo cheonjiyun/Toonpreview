@@ -1,7 +1,7 @@
 // 이동 이벤트
 const imageFileAreaDOM = document.querySelector(".image-file-area");
 
-export function imageMove(event) {
+export function moveImage(event) {
     event.preventDefault();
 
     // DOM

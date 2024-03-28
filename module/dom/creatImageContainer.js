@@ -1,4 +1,4 @@
-import { imageDelete } from "../image_area/imageDelete.js";
+import { deleteImage } from "../image_area/deleteImage.js";
 
 let imageId = 1;
 
@@ -10,7 +10,6 @@ export function creatImageContainerDOM(title, image) {
     imageFileContainerDOM.addEventListener("dragstart", (event) => {
         event.target.classList.add("dragging");
     });
-    // imageFileContainerDOM.addEventListener("dragover", imageMove);
     imageFileContainerDOM.addEventListener("dragend", (event) => {
         event.target.classList.remove("dragging");
     });
@@ -22,7 +21,7 @@ export function creatImageContainerDOM(title, image) {
 
     const btnImageDeleteDOM = document.createElement("div");
     btnImageDeleteDOM.className = "image-delete";
-    btnImageDeleteDOM.addEventListener("click", imageDelete);
+    btnImageDeleteDOM.addEventListener("click", deleteImage);
 
     const imageTitleDOM = document.createElement("div");
     imageTitleDOM.className = "image-title";

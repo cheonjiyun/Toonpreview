@@ -1,14 +1,14 @@
-import { imageMove } from "/module/image_area/imageMove.js";
-import { addImageDiv } from "/module/image_area/imageAdd.js";
+import { moveImage } from "/module/image_area/moveImage.js";
+import { addImageDiv } from "/module/image_area/addImage.js";
 import { updatePhoneImage } from "/module/phone_area/imageViewPhone.js";
 
 // 미리보기 유무
-export let previewFlag = "zero";
+export let previewFlag = { flag: "zero" };
 
 // --- 이미지 ---
 // 파일이동
 const imageFileAreaDOM = document.querySelector(".image-file-area");
-imageFileAreaDOM.addEventListener("dragover", imageMove);
+imageFileAreaDOM.addEventListener("dragover", moveImage);
 // 파일이동
 
 // 파일추가
@@ -18,9 +18,10 @@ const fileAreaDOM = document.querySelector(".file-area");
 // 1. 클릭했을 때
 btnUploadInputDOM.addEventListener("change", (event) => {
     const draggingDOM = document.querySelector(".image-file-container.dragging");
-    if (draggingDOM) return; // 처음 파일을 드래그해서 올릴 때는 대비한 예외처리
+    if (draggingDOM) return; // add가 아닌 드래그를 하는 상황에 대한 예외처리
 
-    previewFlag = previewFlag == "zero" ? "frist" : "afterSecond";
+    previewFlag.flag = previewFlag.flag == "zero" ? "frist" : "afterSecond";
+
     addImageDiv(event.target.files);
 });
 
@@ -42,9 +43,10 @@ fileAreaDOM.addEventListener(
     "drop",
     (event) => {
         const draggingDOM = document.querySelector(".image-file-container.dragging");
-        if (draggingDOM) return; // 처음 파일을 드래그해서 올릴 때는 대비한 예외처리
+        if (draggingDOM) return; // add가 아닌 드래그를 하는 상황에 대한 예외처리
 
-        previewFlag = previewFlag == "zero" ? "frist" : "afterSecond";
+        previewFlag.flag = previewFlag.flag == "zero" ? "frist" : "afterSecond";
+
         stopandprevent(event);
         addImageDiv(event.dataTransfer.files);
     },
@@ -90,7 +92,6 @@ async function setPreview() {
                 return response.blob();
             })
             .then((blob) => {
-                console.log(blob);
                 const file = new File([blob], `미리보기_00${i}.png`);
                 addImageDiv([file]);
             });
