@@ -21,6 +21,7 @@ btnUploadInputDOM.addEventListener("change", (event) => {
     if (draggingDOM) return; // add가 아닌 드래그를 하는 상황에 대한 예외처리
 
     previewFlag.flag = previewFlag.flag == "zero" ? "frist" : "afterSecond";
+
     addImageDiv(event.target.files);
 });
 
@@ -45,6 +46,7 @@ fileAreaDOM.addEventListener(
         if (draggingDOM) return; // add가 아닌 드래그를 하는 상황에 대한 예외처리
 
         previewFlag.flag = previewFlag.flag == "zero" ? "frist" : "afterSecond";
+
         stopandprevent(event);
         addImageDiv(event.dataTransfer.files);
     },
